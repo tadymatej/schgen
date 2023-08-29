@@ -1,0 +1,105 @@
+/**
+Author: Igar Sauchanka (xsauch00)
+*/
+
+.mobile-container {
+    min-width: 480px;
+    display: none;
+    height: auto;
+}
+table.mobile {
+    float:left;
+}
+.mobile-content {
+    float:left;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: -4px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+.mobile-border-container {
+    display: inline-flex;
+}
+.table.mobile tbody {
+    width: 100%;
+}
+table.mobile tr , .mobile-content tr {
+    border: none;
+}
+table.mobile td, .mobile-content td {
+    padding: 0px;
+    height: 70px;
+    width: 100px;
+    text-align: center;
+}
+table.desktop td {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+table.mobile tr:nth-of-type(1), .mobile-content tr:nth-of-type(1) {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+table.mobile tr, .mobile-content tr {
+    padding: 0px;
+    border-spacing: 0px;
+    display: list-item;
+    list-style-type: none;
+    width: 100%;
+    height: 70px;
+}
+table.mobile tr:nth-of-type(1) td:nth-of-type(1) {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+table.mobile tr:nth-of-type(n+2) td:nth-of-type(1) {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+.mobile-content .day {
+    font-weight: bold;
+    text-align: center;
+    border-right: 2px solid black;
+    width: 70px;
+}
+
+@media only screen and (max-width: 1135px) {
+    .mobile-container {
+        display:table-footer-group;
+        max-height: 20%;
+        overflow: visible;
+    }
+    table.desktop {
+        display:none;
+    }
+    .schedules-buttons.buttons-fixed {
+        width: 100%;
+        background-color: lightblue;
+        display:flex;
+        position: fixed;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        bottom: 0px;
+        display: none;
+    }
+    .schedules-buttons .cont {
+        width: 467px;
+        display: flex;
+        justify-content: inherit;
+    }
+    footer {
+        display: block;
+    }
+}
+
+.day-last {
+    border-right: none !important;
+}
+.day-ct {
+    border-left: 2px solid black;
+}

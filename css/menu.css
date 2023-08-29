@@ -1,0 +1,387 @@
+/**
+Author: Matěj Žalmánek (xzalma00)
+*/
+
+.container {
+    width: 100%;
+
+}
+body {
+    margin: 0;
+}
+.menu {
+    width: calc(20% - 20px);
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 100vh;
+    float: left;
+    border-right: 2px solid black;
+    background-color: lightblue;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.content .container {
+    width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.schedule {
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.schedule .holder {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 35px;
+    cursor: pointer;
+}
+
+button.generate, button.help {
+    clear: both;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+.help-holder {
+    margin-top: 10px;
+}
+.subjects {
+    float: right;
+    font-size: 20px;
+    width: 70%;
+    margin-bottom: 20px;
+}
+.subjects .subject{
+    width: calc(100% - 8px);
+    border: 2px solid black;
+    background-color: white;
+    margin-top: 1px;
+    height: auto;
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.subjects .subject .name {
+    float: left;
+}
+.subjects .subject .remove {
+    float: right;
+    color: red;
+    cursor: pointer;
+    font-size: 25px;
+}
+h1 {
+    text-align: center;
+    clear: both;
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.generate-number {
+    border-top: 2px solid black;
+    clear: both;
+    margin-bottom: 20px;
+}
+input {
+    width: 90%;
+    height: 20px;
+    font-size: 17px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+.schedules-buttons {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.add-to-favourite {
+    float: right;
+}
+.holder button, .cont button {
+    height: 25px;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.holder button:nth-of-type(n+2) {
+    margin-left: 10px;
+}
+
+.free-times {
+    margin-top: 10px;
+    border-top: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+.free-times h1 {
+    flex: 0 1 100%;
+}
+.free-times button, button.iterate {
+    display:table;
+    margin-left:auto;
+    margin-right: auto;
+    font-size: 17px;
+    height: 25px;
+}
+button.iterate {
+    margin-top: 10px;
+}
+.find-subjects {
+    margin-top: 10px;
+    border-top: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.find-subjects h1 {
+    flex: 1 0 100%;
+}
+.find-subjects .input-container {
+    flex: 1 0 60%;
+    height: 50%;
+    z-index: 100;
+}
+.find-subjects button {
+    flex: 1 0 20%;
+    margin-left: 10px;
+    font-size: 17px;
+    height: 25px;
+}
+.find-subjects input {
+    padding: 0;
+    width: calc(100% - 10px);
+}
+.hints {
+    display:none;
+    margin-top: 2px;
+    background-color: white;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 100px;
+    max-width: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999999;
+}
+.hints .hint {
+    border: 2px solid black;
+    border-top: none;
+    cursor: pointer;
+    display:none;
+    z-index: 9999999;
+} 
+.schedule-num {
+    overflow:hidden;
+}
+.hints .hint-allowed {
+    display: block;
+}
+.hints div:nth-of-type(1) {
+    border-top: 2px solid black;
+}
+
+.hints .hint:hover {
+    background-color: darkgray;
+}
+
+.semester-select {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+.semester-select label, .semester-select select {
+    margin-top: 5px;
+    flex: 1 0 50%;
+    clear: both;
+    float: left;
+    font-size: 20px; 
+}
+.semester-select select {
+    width: 50%;
+}
+
+.semester-select button, .generate-holder button, .help-holder button {
+    font-size: 20px;
+    height: 30px;
+}
+
+td button {
+    display:none;
+    height: 100%;
+}
+table, tbody, tr {
+    border-spacing: 0px;
+}
+div.mobile-content {
+    margin-left: -2px;
+}
+div.mobile-content .mobile-data, div.mobile-content .mobile-data-smallest  {
+    margin-top: 3px;
+}
+
+.mobile-data-smallest {
+    display:none;
+}
+
+.subjects {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 200px;
+}
+.schedules-buttons.buttons-fixed .other-days {
+    display: none;
+}
+
+@media only screen and (max-width: 1300px) {
+    .help-holder {
+        margin-top: 0px;
+    }
+    .content {
+        clear:both;
+        align-items: unset;
+    }
+    h1 {
+        font-size: 1.3em;
+    }
+    .menu {
+        width: 100%;
+        max-width: calc(100% - 20px);
+        border: none;
+        border-bottom: 2px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        min-height: auto;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .semester-select h1, .find-subjects h1, .free-times h1, .subjects-container h1, .generate-number h1, .fake-wrap h1 {
+        margin-top: 0px;
+    }
+    .semester-select, .find-subjects, .free-times, .subjects-container, .generate-number, .fake-wrap {
+        height: 210px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .find-subjects h1:nth-of-type(2){
+        margin-top: -50px;
+    }
+
+    .semester-select, .find-subjects, .free-times, .subjects-container, .generate-number
+    {
+        border: 2px solid black;
+    }
+
+    .semester-select, .find-subjects, .free-times, .subjects-container, .generate-number, .fake-wrap {
+        flex: 3 0 25%;
+        max-width: 30%;
+    }
+    .find-subjects .input-container {
+        flex: 1 0 50%;
+    }
+    .schedules-buttons.buttons-fixed {
+        display: flex !important;
+    }
+    .generate-holder, .help-holder {
+        flex: 1 0 100%;
+        margin-bottom: 20px;
+    }
+    .subjects {
+        float: none;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+        max-height: 130px;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .semester-select, .find-subjects, .free-times, .subjects-container, .generate-number, .generate-holder, .fake-wrap {
+        flex: 2 0 40%;
+        max-width: 45%;
+    }
+    .generate-holder, .help-holder {
+        display: table;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .fake {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 492px) {
+    .semester-select, .find-subjects, .free-times, .subjects-container, .generate-number, .generate-holder {
+        flex: 1 0 calc(100% - 40px);
+        max-width: 98%;
+    }
+    button {
+        min-height: 30px !important;   
+    }
+    .fake-wrap {
+        display: none;
+    }
+    .default-hidden {
+        display: none !important;
+    }
+    .mobile-data-smallest {
+        display:block;
+    }
+    .mobile-data {
+        display:none;
+    }
+    td button {
+        display: block;
+    }
+    .schedules-buttons.buttons-fixed .cont {
+        flex-direction: row !important;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .schedules-buttons.buttons-fixed .other-days {
+        display: block;
+    }
+    .schedules-buttons.buttons-fixed .cont button, .iterate, .download {
+        width: 40% !important;
+        margin-top: 2px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .go-throw-favourites, .add-to-favourite, .odd-even {
+        float: none !important;
+        display:table;
+        clear:both;
+        margin-left:auto !important;
+        margin-right: auto !important;
+    }
+}
+
+footer {
+    height: 120px;
+    width: 100%;
+    display:none;
+}

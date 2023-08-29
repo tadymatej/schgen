@@ -1,0 +1,5 @@
+{
+    "studiums":[
+    {"studium":{"name": "BIT","studiumFocuses":[],"type": 0}},{"studium":{"name": "IT-BC-3","studiumFocuses":["BIT"],"type": 0}},{"studium":{"name": "IT-MGR-2","studiumFocuses":["MBI","MBS","MGM","MPV","MSK","MIN","MIS","MMM","MGMe"],"type": 1}},{"studium":{"name": "MITAI","studiumFocuses":["NADE","NBIO","NCPS","NEMB","NGRI","NHPC","NIDE","NISD","NMAL","NMAT","NNET","NSEC","NSEN","NSPE","NVER","NVIZ","NISY"],"type": 1}},{"studium":{"name": "DIT","studiumFocuses":[],"type": 2}},{"studium":{"name": "VTI-DR-4","studiumFocuses":["DVI4"],"type": 2}},{"studium":{"name": "MIT-EN","studiumFocuses":[],"type": 1}}
+    ]}
+    

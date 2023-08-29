@@ -1,0 +1,724 @@
+<!---
+authors: Matěj Žalmánek (xzalma00), Igar Sauchanka (xsauch00)
+-->    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/schedule-desktop.css">
+    <link rel="stylesheet" href="css/schedule-mobile.css">
+    <link rel="stylesheet" href="css/table-free-time-select.css">
+    <link rel="stylesheet" href="css/user-message.css">
+    <link rel="stylesheet" href="css/help.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/controller/controller.js"></script>
+    <script src="js/view/view.js"></script>
+    <script src="js/view/textAdviser.js"></script>
+    <script src="js/view/freeTime.js"></script>
+    <script src="js/view/schedule.js"></script>
+    <script src="js/view/schedules.js"></script>
+    <script src="js/view/userMessage.js"></script>
+    <script src="js/model/studiumParser.js"></script>
+    <script src="js/controller/semesterSelect.js"></script>
+    <script src="js/view/insertedSubjects.js"></script>
+    <script src="js/controller/insertedSubjects.js"></script>
+    <script src="js/controller/textAdviser.js"></script>
+    <script src="js/controller/freeTime.js"></script>
+    <script src="js/controller/schedule.js"></script>
+    <script src="js/controller/schedules.js"></script>
+    <script src="js/controller/userMessage.js"></script>
+    <script src="js/scheduleGenerator.js"></script>
+    <script src="js/view/semesterSelect.js"></script>
+    <script src="js/view/help.js"></script>
+    <title>Schgen</title>
+    <style>
+        .settings {
+            display: block;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="table-free-time-select">
+            <div class="container">
+                <div class="cont">
+                    <button onclick="controller.freeTime.hide()" class="exit">Zavřít</button>
+                    <table class="tfts-desktop">
+                        <tr>
+                            <td style="border-left :none;"></td>
+                            <td style="border-left: none;">7:00 - <div style="flex: 1 0 100%; text-align: right;">7:50</div></td>
+                            <td>8:00 - <div style="flex: 1 0 100%; text-align: right;">8:50</div></td>
+                            <td>9:00 - <div style="flex: 1 0 100%; text-align: right;">9:50</div></td>
+                            <td>10:00 - <div style="flex: 1 0 100%; text-align: right;">10:50</div></td>
+                            <td>11:00 - <div style="flex: 1 0 100%; text-align: right;">11:50</div></td>
+                            <td>12:00 - <div style="flex: 1 0 100%; text-align: right;">12:50</div></td>
+                            <td>13:00 - <div style="flex: 1 0 100%; text-align: right;">13:50</div></td>
+                            <td>14:00 - <div style="flex: 1 0 100%; text-align: right;">14:50</div></td>
+                            <td>15:00 - <div style="flex: 1 0 100%; text-align: right;">15:50</div></td>
+                            <td>16:00 - <div style="flex: 1 0 100%; text-align: right;">16:50</div></td>
+                            <td>17:00 - <div style="flex: 1 0 100%; text-align: right;">17:50</div></td>
+                            <td>18:00 - <div style="flex: 1 0 100%; text-align: right;">18:50</div></td>
+                            <td>19:00 - <div style="flex: 1 0 100%; text-align: right;">19:50</div></td>
+                            <td>20:00 - <div style="flex: 1 0 100%; text-align: right;">20:50</div></td>
+                        </tr>
+                        <tr>
+                            <td class="day"><div>Po</div></td>
+                            <td data-hour="7"></td>
+                            <td data-hour="8"></td>
+                            <td data-hour="9"></td>
+                            <td data-hour="10"></td>
+                            <td data-hour="11"></td>
+                            <td data-hour="12"></td>
+                            <td data-hour="13"></td>
+                            <td data-hour="14"></td>
+                            <td data-hour="15"></td>
+                            <td data-hour="16"></td>
+                            <td data-hour="17"></td>
+                            <td data-hour="18"></td>
+                            <td data-hour="19"></td> 
+                            <td data-hour="20"></td> 
+                        </tr>
+                        <tr>
+                            <td class="day"><div>Út</div></td>
+                            <td data-hour="31"></td>
+                            <td data-hour="32"></td>
+                            <td data-hour="33"></td>
+                            <td data-hour="34"></td>
+                            <td data-hour="35"></td>
+                            <td data-hour="36"></td>
+                            <td data-hour="37"></td>
+                            <td data-hour="38"></td>
+                            <td data-hour="39"></td>
+                            <td data-hour="40"></td>
+                            <td data-hour="41"></td>
+                            <td data-hour="42"></td>
+                            <td data-hour="43"></td> 
+                            <td data-hour="44"></td> 
+                        </tr>
+                        <tr>
+                            <td class="day"><div>St</div></td>
+                            <td data-hour="55"></td>
+                            <td data-hour="56"></td>
+                            <td data-hour="57"></td>
+                            <td data-hour="58"></td>
+                            <td data-hour="59"></td>
+                            <td data-hour="60"></td>
+                            <td data-hour="61"></td>
+                            <td data-hour="62"></td>
+                            <td data-hour="63"></td>
+                            <td data-hour="64"></td>
+                            <td data-hour="65"></td>
+                            <td data-hour="66"></td>
+                            <td data-hour="67"></td>
+                            <td data-hour="68"></td>
+                        </tr>
+                        <tr>
+                            <td class="day"><div>Čt</div></td>
+                            <td data-hour="79"></td>
+                            <td data-hour="80"></td>
+                            <td data-hour="81"></td>
+                            <td data-hour="82"></td>
+                            <td data-hour="83"></td>
+                            <td data-hour="84"></td>
+                            <td data-hour="85"></td>
+                            <td data-hour="86"></td>
+                            <td data-hour="87"></td>
+                            <td data-hour="88"></td>
+                            <td data-hour="89"></td>
+                            <td data-hour="90"></td>
+                            <td data-hour="91"></td>
+                            <td data-hour="92"></td>
+                        </tr>
+                        <tr>
+                            <td class="day"><div>Pá</div></td>
+                            <td data-hour="103"></td>
+                            <td data-hour="104"></td>
+                            <td data-hour="105"></td>
+                            <td data-hour="106"></td>
+                            <td data-hour="107"></td>
+                            <td data-hour="108"></td>
+                            <td data-hour="109"></td>
+                            <td data-hour="110"></td>
+                            <td data-hour="111"></td>
+                            <td data-hour="112"></td>
+                            <td data-hour="113"></td>
+                            <td data-hour="114"></td>
+                            <td data-hour="115"></td>
+                            <td data-hour="116"></td>
+                        </tr>
+                    </table>
+                    <table class="tfts-mobile">
+                        <tr>
+                            <td></td>
+                            <td>Po</td>
+                            <td>Út</td>
+                            <td>St</td>
+                            <td>Čt</td>
+                            <td>Pá</td>
+                        </tr>
+                        <tr>
+                            <td>7:00 - 7:50</td>
+                            <td data-hour="7"></td>
+                            <td data-hour="31"></td>
+                            <td data-hour="55"></td>
+                            <td data-hour="79"></td>
+                            <td data-hour="103"></td>
+                        </tr>
+                        <tr>
+                            <td>8:00 - 8:50</td>
+                            <td data-hour="8"></td>
+                            <td data-hour="32"></td>
+                            <td data-hour="56"></td>
+                            <td data-hour="80"></td>
+                            <td data-hour="104"></td>
+                        </tr>
+                        <tr>
+                            <td>9:00 - 9:50</td>
+                            <td data-hour="9"></td>
+                            <td data-hour="33"></td>
+                            <td data-hour="57"></td>
+                            <td data-hour="81"></td>
+                            <td data-hour="105"></td>
+                        </tr>
+                        <tr>
+                            <td>10:00 - 10:50</td>
+                            <td data-hour="10"></td>
+                            <td data-hour="34"></td>
+                            <td data-hour="58"></td>
+                            <td data-hour="82"></td>
+                            <td data-hour="106"></td>
+                        </tr>
+                        <tr>
+                            <td>11:00 - 11:50</td>
+                            <td data-hour="11"></td>
+                            <td data-hour="35"></td>
+                            <td data-hour="59"></td>
+                            <td data-hour="83"></td>
+                            <td data-hour="107"></td>
+                        </tr>
+                        <tr>
+                            <td>12:00 - 12:50</td>
+                            <td data-hour="12"></td>
+                            <td data-hour="36"></td>
+                            <td data-hour="60"></td>
+                            <td data-hour="84"></td>
+                            <td data-hour="108"></td>
+                        </tr>
+                        <tr>
+                            <td>13:00 - 13:50</td>
+                            <td data-hour="13"></td>
+                            <td data-hour="37"></td>
+                            <td data-hour="61"></td>
+                            <td data-hour="85"></td>
+                            <td data-hour="109"></td>
+                        </tr>
+                        <tr>
+                            <td>14:00 - 14:50</td>
+                            <td data-hour="14"></td>
+                            <td data-hour="38"></td>
+                            <td data-hour="62"></td>
+                            <td data-hour="86"></td>
+                            <td data-hour="110"></td>
+                        </tr>
+                        <tr>
+                            <td>15:00 - 15:50</td>
+                            <td data-hour="15"></td>
+                            <td data-hour="39"></td>
+                            <td data-hour="63"></td>
+                            <td data-hour="87"></td>
+                            <td data-hour="111"></td>
+                        </tr>
+                        <tr>
+                            <td>16:00 - 16:50</td>
+                            <td data-hour="16"></td>
+                            <td data-hour="40"></td>
+                            <td data-hour="64"></td>
+                            <td data-hour="88"></td>
+                            <td data-hour="112"></td>
+                        </tr>
+                        <tr>
+                            <td>17:00 - 17:50</td>
+                            <td data-hour="17"></td>
+                            <td data-hour="41"></td>
+                            <td data-hour="65"></td>
+                            <td data-hour="89"></td>
+                            <td data-hour="113"></td>
+                        </tr>
+                        <tr>
+                            <td>18:00 - 18:50</td>
+                            <td data-hour="18"></td>
+                            <td data-hour="42"></td>
+                            <td data-hour="66"></td>
+                            <td data-hour="90"></td>
+                            <td data-hour="114"></td>
+                        </tr>
+                        <tr>
+                            <td>19:00 - 19:50</td>
+                            <td data-hour="19"></td>
+                            <td data-hour="43"></td>
+                            <td data-hour="67"></td>
+                            <td data-hour="91"></td>
+                            <td data-hour="115"></td>
+                        </tr>
+                        <tr>
+                            <td>20:00 - 20:50</td>
+                            <td data-hour="20"></td>
+                            <td data-hour="44"></td>
+                            <td data-hour="68"></td>
+                            <td data-hour="92"></td>
+                            <td data-hour="116"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="semester-select">
+                <h1>Vyberte aktuální semestr</h1>
+                <label for="studium">Studium:</label>
+                <select id="studium">
+                </select>
+                <label for="focus">Zaměření:</label>
+                <select id="studium-focus">
+                </select>
+                <label for="year">Ročník:</label>
+                <select id="year">
+                </select>
+                <label for="semester">Semestr:</label>
+                <select id="semester">
+                    <option value="0">Zimní</option>
+                    <option value="1">Letní</option>
+                </select>
+                <button onclick="controller.semesterSelect.submit()">Vybrat</button>
+            </div>
+            <div class="find-subjects">
+                <h1>Vyhledat povinně volitelný předmět</h1>
+                <div class="fake"></div>
+                <div class="input-container">
+                    <input type="text"/>
+                    <div style="display: none;" class="hints">
+
+                    </div>
+                </div>
+                <button onclick="controller.textAdviser.submit()">Přidat</button>
+                <h1>Vyhledat předmět</h1>
+                <div class="fake"></div>
+                <div class="input-container">
+                    <input type="text"/>
+                    <div style="display: none;" class="hints">
+
+                    </div>
+                </div>
+                <button onclick="controller.textAdviser.submit()">Přidat</button>                
+            </div>
+            <div class="free-times">
+                <h1>Volno v rozvrhu:</h1>
+                <button onclick="controller.freeTime.show()">Vybrat volno</button>
+            </div>
+            <div class="subjects-container">
+                <h1>Vložené předměty:</h1>
+                <div class="subjects">
+                </div>
+            </div>
+            <div class="generate-number">
+                <h1>Maximální počet generovaných rozvrhů:</h1>
+                <input min="1" max="10000" value="50" type="number"/>
+            </div>
+            <div class="fake-wrap">
+
+            </div>
+            <div class="generate-holder">
+                <button onclick="controller.insertedSubjects.generate()" class="generate">Generuj</button>
+            </div>
+            <div class="help-holder">
+                <button onclick="view.help.show()" class="help">Nápověda</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="schedule">
+                    <div class="holder">
+                        <div class="heading">
+                            <h1 class="schedule-name"></h1>
+                        </div>
+                        <button class="go-throw-favourites">Procházet oblíbené</button>
+                        <button class="add-to-favourite">Přidat do oblíbených</button>
+                        <div class="odd-even" style="clear: both;float: right;">
+                            <button class="even-week">Sudý</button>
+                            <button class="odd-week">Lichý</button>
+                        </div>
+                        <table class="desktop">
+                            <tr>
+                                <td class="schedule-num" style="border-left :none;"></td>
+                                <td style="border-left: none;">7:00 - <div style="flex: 1 0 100%; text-align: right;">7:50</div></td>
+                                <th></th>
+                                <td>8:00 - <div style="flex: 1 0 100%; text-align: right;">8:50</div></td>
+                                <th></th>
+                                <td>9:00 - <div style="flex: 1 0 100%; text-align: right;">9:50</div></td>
+                                <th></th>
+                                <td>10:00 - <div style="flex: 1 0 100%; text-align: right;">10:50</div></td>
+                                <th></th>
+                                <td>11:00 - <div style="flex: 1 0 100%; text-align: right;">11:50</div></td>
+                                <th></th>
+                                <td>12:00 - <div style="flex: 1 0 100%; text-align: right;">12:50</div></td>
+                                <th></th>
+                                <td>13:00 - <div style="flex: 1 0 100%; text-align: right;">13:50</div></td>
+                                <th></th>
+                                <td>14:00 - <div style="flex: 1 0 100%; text-align: right;">14:50</div></td>
+                                <th></th>
+                                <td>15:00 - <div style="flex: 1 0 100%; text-align: right;">15:50</div></td>
+                                <th></th>
+                                <td>16:00 - <div style="flex: 1 0 100%; text-align: right;">16:50</div></td>
+                                <th></th>
+                                <td>17:00 - <div style="flex: 1 0 100%; text-align: right;">17:50</div></td>
+                                <th></th>
+                                <td>18:00 - <div style="flex: 1 0 100%; text-align: right;">18:50</div></td>
+                                <th></th>
+                                <td>19:00 - <div style="flex: 1 0 100%; text-align: right;">19:50</div></td>
+                                <th></th>
+                                <td>20:00 - <div style="flex: 1 0 100%; text-align: right;">20:50</div></td>
+                            
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Po</div></td>                 
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Út</div></td>
+                            </tr>
+                            <tr>
+                                <td class="day"><div>St</div></td>
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Čt</div></td>
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Pá</div></td>
+                            </tr>
+                        </table>
+                            <div class="mobile-container">
+                                <div class="mobile-border-container">
+                                    <table class="mobile">
+                                        <tr>
+                                            <td class="schedule-num">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7:00 - 7:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8:00 - 8:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9:00 - 9:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10:00 - 10:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11:00 - 11:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12:00 - 12:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13:00 - 13:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14:00 - 14:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15:00 - 15:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16:00 - 16:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>17:00 - 17:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>18:00 - 18:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19:00 - 19:50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20:00 - 20:50</td>
+                                        </tr>
+                                    </table>
+                                    <div class="mobile-content">
+                                    <table>
+                                        <tr>
+                                            <td class="day">Po</td>
+                                            <td class="day">Út</td>
+                                            <td class="day day-last">St</td>
+                                            <td class="day day-ct default-hidden">Čt</td>
+                                            <td class="day day-last default-hidden">Pá</td>
+                                        </tr>
+                                    </table>
+                                    <div class="mobile-data">
+                                        
+                                    </div>
+                                    <div class="mobile-data-smallest">
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <button class="iterate" onclick="controller.schedules.iterate()">Iterovat</button>
+                <div class="schedules-buttons buttons-fixed">
+                    <div class="cont">
+                        <button onclick="view.schedule.mobile.swapShowing()" class="other-days">Ostatní dny</button>
+                        <button class="previous">Předchozí</button>
+                        <button class="remove">Smazat</button>
+                        <button class="next">Následující</button>
+                    </div>
+                </div>
+                <div class="schedules-buttons">
+                    <div class="cont">
+                        <button onclick="controller.schedules.download(this)">Stáhnout</button>
+                    </div>
+                </div>
+                <div class="schedule">
+                    <div class="holder">
+                        <table class="desktop">
+                            <tr>
+                                <td class="schedule-num" style="border-left :none;"></td>
+                                <td style="border-left: none;">7:00 - <div style="flex: 1 0 100%; text-align: right;">7:50</div></td>
+                                <th></th>
+                                <td>8:00 - <div style="flex: 1 0 100%; text-align: right;">8:50</div></td>
+                                <th></th>
+                                <td>9:00 - <div style="flex: 1 0 100%; text-align: right;">9:50</div></td>
+                                <th></th>
+                                <td>10:00 - <div style="flex: 1 0 100%; text-align: right;">10:50</div></td>
+                                <th></th>
+                                <td>11:00 - <div style="flex: 1 0 100%; text-align: right;">11:50</div></td>
+                                <th></th>
+                                <td>12:00 - <div style="flex: 1 0 100%; text-align: right;">12:50</div></td>
+                                <th></th>
+                                <td>13:00 - <div style="flex: 1 0 100%; text-align: right;">13:50</div></td>
+                                <th></th>
+                                <td>14:00 - <div style="flex: 1 0 100%; text-align: right;">14:50</div></td>
+                                <th></th>
+                                <td>15:00 - <div style="flex: 1 0 100%; text-align: right;">15:50</div></td>
+                                <th></th>
+                                <td>16:00 - <div style="flex: 1 0 100%; text-align: right;">16:50</div></td>
+                                <th></th>
+                                <td>17:00 - <div style="flex: 1 0 100%; text-align: right;">17:50</div></td>
+                                <th></th>
+                                <td>18:00 - <div style="flex: 1 0 100%; text-align: right;">18:50</div></td>
+                                <th></th>
+                                <td>19:00 - <div style="flex: 1 0 100%; text-align: right;">19:50</div></td>
+                                <th></th>
+                                <td>20:00 - <div style="flex: 1 0 100%; text-align: right;">20:50</div></td>
+                            
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Po</div></td>                 
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Út</div></td>
+                            </tr>
+                            <tr>
+                                <td class="day"><div>St</div></td>
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Čt</div></td>
+                            </tr>
+                            <tr>
+                                <td class="day"><div>Pá</div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="help-container">
+            <div class="help-close">
+                <button onclick="view.help.hide()">Zavřít</button>
+            </div>
+            <div class="app-help">
+                <div class="help-item">
+                    <h1>Výběr studia</h1>
+                    <p>Kliknutím na element s výběrem v sekci <b>"Vyberte aktuální semestr"</b> vyberte studium. 
+                        Pokud chcete výběr potvrdit, můžete kliknout na tlačítko <b>"Vybrat"</b>, ale 
+                        defaultně se výběr potvrdí automaticky, takže toto není povinné.
+                    </p>
+                    <p>Po výběru studia se do sekce <b>"Vložené předměty"</b> vloží všechny povinné předměty v daném studiu</p>
+                </div>
+                <div class="help-item">
+                    <h1>Vyhledávání předmětů</h1>
+                    <p>Pokud vybíráte předmět v sekci <b>"Vyhledat předmět"</b>, máte k dispozici jeden 
+                    až dva inputy. Do těchto inputů zadávate:
+                </p>
+                <p>Do prvního z nich lze zadat povinně volitelné předměty ve vašem vybraném studiu. (Zobrazují se pouze tyto předměty)</p>
+                <p>Do druhého z nich lze zadat libovolný předmět ve vybraném semestru (zimní / letní)</p>
+                <p>Výběr lze v obou případech kliknutím na tlačítko <b>Přidat</b> nebo zmáčknutím klávesy <b>ENTER</b>, popřípadě kliknutím na daný předmět ve "vyhledávači".
+                    Předmět se po potvrzení výběru přidá do sekce <b>"Vložené předměty"</b>.
+                </p>
+                <p>Pro odebrání předmětu stačí znovu potvrdit výběr na tom samém předmětu jako při přidávání.</p>
+                </div>
+                <div class="help-item">
+                    <h1>Volno v rozvrhu</h1>
+                    <p>Zde po kliknutí na <b>"Vybrat volno"</b> se otevře tabulka, ve které 
+                    lze vybrat klikáním na políčka v tabulce volno. Při výběru více voleb za sebou lze 
+                volno vybírat také stisknutím a následným přejetím myši přes daná políčka.
+                        Odebrání volna lze provést stejným způsobem jako přidání. 
+                </p>
+                <p>Volno, které jste přidali se vkládá do sekce <b>"Vložené předměty"</b> a navíc se v tabulce s výběrem volna zobrazují zeleně. 
+                    Výběr není třeba nijak potvrzovat, potvrzuje se automaticky ihned.
+                </p>
+                </div>
+                <div class="help-item">
+                    <h1>Vložené předměty</h1>
+                    <p>V této sekci se zobrazují vložené předměty. Lze můžete procházet vložené předměty, popřípadě odstraňovat 
+                        vložené předměty kliknutím na červené tlačítko <b>X</b>
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Maximální počet generovaných rozvrhů</h1>
+                    <p>Do tohoto inputu zadejte číslo, kolik rozvrhů si přejete vygenerovat.</p>
+                </div>
+                <div class="help-item">
+                    <h1>Generuj</h1>
+                    <p>Toto tlačítko spustí samotné generování. Pokud nezměníte vložené předměty a stisknete znovu toto tlačítko, budou se generovat nové rozvrhy na konec vygenerovaných.</p>
+                    <p>
+                        Mějte na paměti, že pokud provedete změny ve vybraných předmětech, všechny předchozí vygenerované rozvrhy budou smazány a 
+                        přepsány novými.
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Procházet oblíbené</h1>
+                    <p>Tímto tlačítkem se zobrazí a budete procházet pouze rozvrhy, které jste uložili jako oblíbené. 
+                        Lze zde ukládat rozvrhy z více variant generování s různými předměty. 
+                        Pro návrat k procházení mezi vygenerovanými předměty klikněte na tlačítko <b>"Procházet vše"</b>, které 
+                        se objevilo po kliknutí na <b>"Procházet oblíbené"</b>
+                    </p>
+                    <p>
+                        Pokud procházíte oblíbené rozvrhy a přejete si odebrat rozvrh z oblíbených, klikněte na tlačítko 
+                        <b>"Smazat"</b> Tímto se odstraní rozvrh pouze z oblíbených, nikoliv z vygenerovaných.
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Přidat do oblíbených</h1>
+                    <p>
+                        Tímto tlačítkem přidáte aktuálně zobrazený rozvrh k oblíbeným
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Sudý</h1>
+                    <p>
+                      Kliknutím na toto tlačítko zobrazíte rozvrh v sudé týdny. 
+                      Prosím mějte na paměti, že pokud se rozvrh v sudém i lichém týdnu neliší, bude to vypadat stejně.
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Lichý</h1>
+                    <p>
+                        Kliknutím na toto tlačítko zobrazíte rozvrh v liché týdny. 
+                      Prosím mějte na paměti, že pokud se rozvrh v sudém i lichém týdnu neliší, bude to vypadat stejně.
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Iterovat</h1>
+                    <p>
+                      Před samotnou iterací označte předměty, které se Vám líbí tak, jak jsou. 
+                      Toto provedete kliknutím na termín v rozvrhu, který chcete nechat fixní a zkusit hýbat 
+                      ostatními předměty. Například můžete takto označit přednášky / termín cvičení který chcete mít.
+                      Takto označené předměty mají u termínu v rozvrhu v pravém horním rohu známku <b>S</b>
+                    </p>
+                    <p>
+                        Poté kliknutím na toto tlačítko spustíte iteraci. Pokud kliknete na toto tlačítko vícekrát po sobě, bez změny fixnutých předmětů, 
+                        iterace bude pokračovat tam, kde naposled skončila a vloží nové rozvrhy na konec vygenerovaných.
+                    </p>
+                    <p>
+                        Mějte na paměti, že pokud provedete změny ve vybraných předmětech, nebo 
+                        ve fixnutých předmětech, všechny předchozí vygenerované rozvrhy budou smazány a 
+                        přepsány novými.
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Předchozí</h1>
+                    <p>
+                      Kliknutím na toto tlačítko zobrazíte předchozí variantu rozvrhu.
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Smazat</h1>
+                    <p>
+                      Kliknutím na toto tlačítko smažete rozvrh ze seznamu rozvrhů, popřípadě rozvrh z oblíbených rozvrhů. 
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Následující</h1>
+                    <p>
+                        Kliknutím na toto tlačítko zobrazíte následující variantu rozvrhu. 
+                        Pokud už není další varianta rozvrhu vygenerovaná, další varianta rozvrhu se vygeneruje podle vámi naposled zadané akce generování (generování / iterace)
+                    </p>
+                </div>
+                <div class="help-item">
+                    <h1>Stáhnout</h1>
+                    <p>
+                      Kliknutím na toto tlačítko stáhnete právě zobrazený rozvrh ve formátu .png
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer></footer>
+
+
+</body>
+<script>
+    var view = new View();
+    view.insertedSubjects.initContainer($(".subjects-container .subjects")[0]);
+    view.freeTime.initContainer($(".table-free-time-select")[0]);
+    view.schedules.fixedButtons.initScheduleEls([$("table.desktop")[0], $("table.mobile")[0]]);
+    view.schedules.fixedButtons.initButtonsContainer($(".schedules-buttons.buttons-fixed")[0]);
+    //view.schedules.header.initHeaders([$(".mobile-content table tr")[0]]);
+    view.help.initContainer($(".help-container")[0]);
+
+    var controller = new Controller();
+    controller.textAdviserOptionalObligatory.initTextAdviserView(view.textAdviser2);
+    controller.semesterSelect.initSemesterSelectView(view.semesterSelect);
+    controller.textAdviser.initTextAdviserView(view.textAdviser);
+    controller.freeTime.initFreeTimeView(view.freeTime);
+    controller.schedule.initScheduleView(view.schedule);
+    controller.schedules.initSchedulesView(view.schedules);
+    controller.userMessage.initUserMessageView(view.userMessage);
+    controller.insertedSubjects.initInsertedSubjectsView(view.insertedSubjects);
+    controller.semesterSelect.initSelectSemesterElement($("select#semester")[0]);
+    controller.semesterSelect.initSelectYearElement($("select#year")[0]);
+    controller.semesterSelect.initSelectStudiumElement($("select#studium")[0]);
+    controller.semesterSelect.initSelectFocusElement($("select#studium-focus")[0]);
+
+    controller.textAdviser.initTextAdviserContainer($(".find-subjects .input-container .hints")[1]);
+    controller.textAdviser.initInputElement($(".find-subjects .input-container input")[1]);
+
+    controller.textAdviserOptionalObligatory.initTextAdviserContainer($(".find-subjects .input-container .hints")[0], false);
+    controller.textAdviserOptionalObligatory.initInputElement($(".find-subjects .input-container input")[0]);
+
+    controller.freeTime.initTables([$("table.tfts-desktop")[0], $("table.tfts-mobile")[0]]);
+
+    controller.schedule.scheduleView.desktop.initDataContainer($("table.desktop")[0]);
+    controller.schedule.scheduleView.tablet.initDataContainer($(".mobile-data")[0]);
+    controller.schedule.scheduleView.mobile.initDataContainer($(".mobile-data-smallest")[0]);
+
+    controller.schedules.initNextButton($(".next")[0]);
+    controller.schedules.initPreviousButton($(".previous")[0]);
+    controller.schedules.initAddToFavouritesButton($(".add-to-favourite")[0]);
+    controller.schedules.initRemoveButton($(".buttons-fixed .remove")[0]);
+    controller.schedules.initGoThrowFavouritesButton($(".go-throw-favourites")[0]);
+    controller.schedules.initEvenWeekButton($("button.even-week")[0]);
+    controller.schedules.initOddWeekButton($("button.odd-week")[0]);
+
+    view.schedules.initMaxInput($(".generate-number input")[0]);
+    view.schedules.initActualScheduleNumberHolders($(".schedule-num"));
+</script>
+</html>

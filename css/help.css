@@ -1,0 +1,43 @@
+/**
+Author: Igar Sauchanka (xsauch00)
+*/
+
+.help-container {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(156, 21, 21, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 999999999999;
+}
+
+.app-help {
+    display: list-item;
+    overflow-x: hidden;
+    margin-left:auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 5px;
+    max-height: 90%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+
+.app-help .help-item {
+    background-color: white;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.help-close {
+    margin-top: 5px;
+    width: 100%;
+    clear:both;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

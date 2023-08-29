@@ -1,0 +1,19 @@
+/**
+Author: Igar Sauchanka (xsauch00)
+*/
+.user-message {
+    display: none;
+    width: calc(100% - 4px);
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: fixed;
+    top: 0px;
+    z-index: 9999999999999;
+    background-color: green;
+    height: auto;
+    transition-duration: 2s;
+    opacity: 1;
+}
